@@ -13,8 +13,7 @@ gem 'turbolinks', '~> 5'
 gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'devise_invitable', '~> 2.0', '>= 2.0.3'
 gem 'money-rails', '~> 1.13', '>= 1.13.4'
-gem 'bulma-rails', '~> 0.9.1'
-
+gem 'bootstrap', '~> 4.6'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
