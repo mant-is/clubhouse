@@ -9,7 +9,12 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    %nav.navbar.navbar-light.bg-light
+    %nav.navbar.navbar-light{style: "background-color: #98E0E0"}
       %a.navbar-brand{href: "/"}
         = image_tag "/assets/treehouse.png", size: "65x65"
+      - if member_signed_in?
+        = link_to "Sign out", destroy_member_session_path, method: "delete", class: "text-white"
+      - else
+        = link_to "Sign in", new_member_session_path, class: "btn btn-outline-light text-white font-weight-bolder"
+
     = yield
