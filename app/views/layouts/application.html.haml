@@ -9,4 +9,7 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    %nav.navbar.navbar-light.bg-light
+      %a.navbar-brand{href: "/"}
+        = image_tag "/assets/treehouse.png", size: "60x60"
     = yield

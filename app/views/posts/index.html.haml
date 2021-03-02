@@ -1,2 +1,7 @@
-%h1 Posts#index
-%p Find me in app/views/posts/index.html.haml
+%h2 Club posts
+- if @posts.count > 0
+  = @posts.each do |post|
+    %p
+      = post.title
+      = post.body
+      -# - if user_signed_in?
