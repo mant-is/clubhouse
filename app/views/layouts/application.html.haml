@@ -9,12 +9,16 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    %nav.navbar.navbar-light{style: "background-color: #98E0E0"}
+    %nav.navbar.navbar-light{style: "background-color: #98E0E0; margin: 0;"}
       %a.navbar-brand{href: "/"}
-        = image_tag "/assets/treehouse.png", size: "65x65"
-      - if member_signed_in?
-        = link_to "Sign out", destroy_member_session_path, method: "delete", class: "text-white"
-      - else
-        = link_to "Sign in", new_member_session_path, class: "btn btn-outline-light text-white font-weight-bolder"
+      .col{style: "border: 0; padding-left: 0"}
+        = link_to image_tag("/assets/treehouse.png", size: "65x65", class: "float-left"), "/"
+      .col
+      .col{style: "padding-right: 0"}
+        - if member_signed_in?
+          = link_to "Sign out", destroy_member_session_path, method: "delete", class: "btn float-right btn-outline-light text-white float-"
+        - elsif current_page?(new_member_session_path)
+        - else
+          = link_to "Sign in", new_member_session_path, class: "btn btn-outline-light float-right text-white font-weight-bolder"
 
     = yield

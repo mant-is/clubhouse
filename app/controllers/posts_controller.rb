@@ -1,18 +1,21 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
-  end
+    # raise params.inspect
 
-  def new
+    @posts = Post.all
     @post = Post.new
   end
 
+  def new
+    @post = current_member.posts.build(post_params)
+  end
+
   def create
-    @post = Post.new(post_params)
+    @post = current_member.posts.build(post_params)
     if @post.save
-      redirect_to @post
+      redirect_to @post, notice: "Post successfully created"
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
