@@ -16,6 +16,8 @@ gem 'money-rails', '~> 1.13', '>= 1.13.4'
 gem 'bootstrap', '~> 4.6'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
+gem 'haml-rails', '2.0.1'
+
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
@@ -32,7 +34,6 @@ group :development, :test do
   gem 'pry-byebug', '~> 3.9'
   gem 'rubocop', '~> 1.10'
   gem 'rails_best_practices', '~> 1.20'
-  gem 'haml-rails', '2.0.1'
 end
 
 group :development do
@@ -48,3 +49,6 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

@@ -17,11 +17,25 @@
                   = form.text_area :body, class: "form-control font-weight-lighter", rows: 5, style: "resize: none", placeholder: "Write a message (only other club members will know you wrote it)"
                   %br
                   = form.submit class: "btn btn-info", value: "Create post"
-                  = form.submit class: "btn btn-outline-warning float-right", value: "Cancel", :disabled => true
+                  = form.submit id: "cancel-post", class: "btn btn-outline-warning float-right", value: "Cancel" #, :disabled => true
+      .col.justify-content-center
+        .container.justify-content-center
+          .row-md-4
+            .col-sm.ml-auto.justify-content-center
+              - @posts.each do |post|
+                %dl
+                  - if member_signed_in?
+                    %dt
+                      %dd
+                        = link_to post.member.username, class: "list-group-item font-weight-light text-muted"
+                  %dt
+                    %dd
+                      %h5.display-5&= post.title
+                  %dt
+                    %dd
+                      %span.text-muted&= post.body
+                %br
     .col-sm
-    - if @posts.count > 0
-      = @posts.each do |post|
-        %p
-          = post.title
-          = post.body
-          -# - if user_signed_in?
+    
+      -# - if @posts.count > 0
+        -# - if user_signed_in?

@@ -134,6 +134,7 @@ GEM
     method_source (1.0.0)
     mimemagic (0.3.5)
     mini_mime (1.0.2)
+    mini_portile2 (2.5.0)
     minitest (5.14.4)
     monetize (1.9.4)
       money (~> 6.12)
@@ -146,7 +147,12 @@ GEM
       railties (>= 3.0)
     msgpack (1.4.2)
     nio4r (2.5.5)
+    nokogiri (1.11.1)
+      mini_portile2 (~> 2.5.0)
+      racc (~> 1.4)
     nokogiri (1.11.1-x86_64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.11.1-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     parallel (1.20.1)
@@ -291,6 +297,8 @@ GEM
 
 PLATFORMS
   x86_64-darwin-20
+  x86_64-linux
+  x86_64-unknown
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
@@ -315,6 +323,7 @@ DEPENDENCIES
   selenium-webdriver
   spring
   turbolinks (~> 5)
+  tzinfo-data
   web-console (>= 4.1.0)
   webdrivers
   webpacker (~> 5.0)

@@ -4,11 +4,12 @@
     .col-sm-6
       %br
       %br
-      = form_with(scope: resource_name,
-                  model: resource,
-                  url: registration_path(resource_name),
-                  method: :post,
-                  class: "form-group") do |form|
+      = form_with model: @member, method: :post, url: member_registration_path do |form|
+        -# scope: resource_name,
+        -# model: resource,
+        -# url: registration_path(resource_name),
+        -# method: :post,
+        -# class: "form-group") do |form|
         .col.justify-content-center
           .container.justify-content-center
             .row-md-4
@@ -16,25 +17,21 @@
                 %h2.display-4 Sign up
                 %br
                 = form.label :email, class: "font-weight-lighter"
-                = form.text_field :email, autofocus: true, autocomplete: "email", class: "form-control font-weight-lighter", placeholder: "Enter email"
+                = form.text_field :email, autofocus: true, autocomplete: "email", class: "form-control font-weight-lighter", placeholder: "Enter email", required: true
                 %small#emailHelp.form-text.text-muted We'll never share your email with anyone else.
                 %br
                 = form.label :name, class: "font-weight-lighter"
-                = form.text_field :name, class: "form-control font-weight-lighter", placeholder: "Enter your first and last name"
+                = form.text_field :name, class: "form-control font-weight-lighter", placeholder: "Enter your first and last name", required: true
                 %br
                 = form.label :username, class: "font-weight-lighter"
-                = form.text_field :username, class: "form-control font-weight-lighter", placeholder: "Create your username"
+                = form.text_field :username, class: "form-control font-weight-lighter", placeholder: "Create your username", required: true
                 %br
                 = form.label :password, class: "font-weight-lighter"
                 = link_to content_tag(:small, raw("SHA3-512 encrypted" )), "https://www.nist.gov/publications/sha-3-standard-permutation-based-hash-and-extendable-output-functions?pub_id=919061", class: "font-weight-lighter float-right text-muted"
-                = form.password_field :password, type: "password", class: "form-control font-weight-lighter", placeholder: "Create your password"
-                -# %small#emailHelp.form-text.text-muted We use 
-                -# %a{href: "https://www.nist.gov/publications/sha-3-standard-permutation-based-hash-and-extendable-output-functions?pub_id=919061"} SHA3-512
-                -# %small#emailHelp.form-text.text-muted encryption.
-
+                = form.password_field :password, type: "password", class: "form-control font-weight-lighter", placeholder: "Create your password", required: true
                 %br
                 = form.label :password_confirmation, class: "font-weight-lighter"
-                = form.password_field :password_confirmation, type: "password", class: "form-control font-weight-lighter", placeholder: "Confirm your password"
+                = form.password_field :password_confirmation, type: "password", class: "form-control font-weight-lighter", placeholder: "Confirm your password", required: true
                 %br
                 = form.submit "Sign up", class: "btn btn-info" 
                 = render "devise/shared/links"

@@ -1,19 +1,19 @@
 class PostsController < ApplicationController
-  def index
-    # raise params.inspect
+  before_action :authenticate_member!, only: [:new, :create]
 
+  def index
     @posts = Post.all
     @post = Post.new
   end
 
   def new
-    @post = current_member.posts.build(post_params)
+    @post = current_member.posts.build
   end
 
   def create
     @post = current_member.posts.build(post_params)
     if @post.save
-      redirect_to @post, notice: "Post successfully created"
+      redirect_to :root, notice: "Post successfully created"
     else
       render :new, status: :unprocessable_entity
     end

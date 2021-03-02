@@ -12,7 +12,7 @@
     %nav.navbar.navbar-light{style: "background-color: #98E0E0; margin: 0;"}
       %a.navbar-brand{href: "/"}
       .col{style: "border: 0; padding-left: 0"}
-        = link_to image_tag("/assets/treehouse.png", size: "65x65", class: "float-left"), "/"
+        = link_to image_tag("/assets/treehouse.png", id: "brand-image", size: "65x65", class: "float-left"), "/"
       .col
       .col{style: "padding-right: 0"}
         - if member_signed_in?
