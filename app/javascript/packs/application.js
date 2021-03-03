@@ -14,5 +14,3 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
-
-document.getElementById('cancel-post').reset();

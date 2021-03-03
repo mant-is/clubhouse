@@ -1,41 +1,34 @@
+= render "form"
 .container-fluid
   .row 
     .col-sm
-    .col-sm-6
-      %br
-      %br
-      - if member_signed_in?
-        = form_with model: @post, url: posts_path, method: :post, class: "form-group" do |form|
-          .col.justify-content-center
-            .container.justify-content-center
-              .row-md-4
-                .col-sm.ml-auto.justify-content-center
-                  %h2.display-4 Create a new post
-                  %br
-                  = form.text_field :title, class: "form-control font-weight-lighter", placeholder: "Add a title"
-                  %br
-                  = form.text_area :body, class: "form-control font-weight-lighter", rows: 5, style: "resize: none", placeholder: "Write a message (only other club members will know you wrote it)"
-                  %br
-                  = form.submit class: "btn btn-info", value: "Create post"
-                  = form.submit id: "cancel-post", class: "btn btn-outline-warning float-right", value: "Cancel" #, :disabled => true
+    .col-sm-6  
       .col.justify-content-center
-        .container.justify-content-center
-          .row-md-4
-            .col-sm.ml-auto.justify-content-center
+        .row-md-2
+          .col-sm.justify-content-center{style: "padding: 0"}
+            .card.shadow.p-3.mb-5.bg-body.rounded-3{style: "width: 100%"}
               - @posts.each do |post|
                 %dl
-                  - if member_signed_in?
-                    %dt
+                  .card_body
+                    - if member_signed_in?
+                      %dt
                       %dd
-                        = link_to post.member.username, class: "list-group-item font-weight-light text-muted"
-                  %dt
+                      %span{class: "fs-4 font-weight-bold text-muted"} Member name:&nbsp;
+                      .row.justify-content-around
+                        .col-11{class: "font-weight-light text-muted"}
+                          = post.member.username
+                    %dt
                     %dd
-                      %h5.display-5&= post.title
-                  %dt
+                    %span{class: "font-weight-light text-muted"} Post title:&nbsp;
+                    %big.display-5
+                    .row.justify-content-around
+                      .col-11{class: "font-weight-light text-muted"}
+                        = post.title
+                    %dt
                     %dd
-                      %span.text-muted&= post.body
-                %br
+                    %span{class: "font-weight-light text-muted"} Message:&nbsp;
+                    .row.justify-content-around
+                      .col-11{class: "font-weight-light text-muted"}
+                        %span.text-muted&= post.body
+                  %br
     .col-sm
-    
-      -# - if @posts.count > 0
-        -# - if user_signed_in?

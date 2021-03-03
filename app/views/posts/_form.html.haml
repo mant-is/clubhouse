@@ -1,0 +1,20 @@
+.container-fluid
+  .row 
+    .col-sm
+    .col-sm-8.col-md-8.col-lg-5
+      %br
+      %br
+      - if member_signed_in?
+        = form_with model: @post, url: posts_path, method: :post, class: "form-group" do |form|
+          .col.justify-content-center
+            .row-md-2
+              .col-md.justify-content-center{style: "padding: 0"}
+                %h2.display-4 Create a new post
+                %br
+                = form.text_field :title, class: "form-control font-weight-lighter", placeholder: "Add a title"
+                %br
+                = form.text_area :body, class: "form-control font-weight-lighter", rows: 5, style: "resize: none", placeholder: "Write a message (only other club members will know you wrote it)"
+                %br
+                = form.submit class: "btn btn-info", value: "Create post"
+                = form.submit class: "btn btn-outline-warning float-right", value: "Cancel", type: "reset"
+    .col-sm  
